@@ -16,10 +16,12 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-A Watchdog device makes sure that your server is still running.
-The included service will regularly write to that watchdog device. If it stops doing so, most likely due to a freeze, then the server will be rebooted.
+Un service de surveillance *watchdog* s'assure que votre serveur tourne toujours, et le redémarre si nécessaire.
+Il tournera préférentiellement (uniquement?) si votre serveur est équipé d'un *watchdog* matériel.
 
-This Watchdog better (only?) works if you have a hardware watchdog integrated in your server. It has only been tested on Raspberry Pi so far.
+Le service inclut ira régulièrement écrire dans `/dev/watchdog`. S'il s'arrête, le plantage est alors détecté et résolu par un redémarrage du système.
+
+Cette application n'a été testée que sur Raspberry Pi.
 
 
 **Version incluse :** 5.16~ynh1

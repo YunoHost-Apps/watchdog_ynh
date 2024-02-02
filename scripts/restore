@@ -22,6 +22,15 @@ systemctl enable $app.service --quiet
 yunohost service add $app
 
 #=================================================
+# GENERIC FINALIZATION
+#=================================================
+# RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
+#=================================================
+ynh_script_progression --message="Reloading $app's service..." --weight=1
+
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
+
+#=================================================
 # END OF SCRIPT
 #=================================================
 

@@ -17,10 +17,9 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Adding system configurations related to $app..."
 
-reboot_required=false
 if [[ $(grep -ic "Raspberry Pi" /proc/cpuinfo) -ge 1 && $(grep -ic "dtparam=watchdog=on" /boot/config.txt) -eq 0 ]]; then
+    cp /boot/config.txt "/boot/config.bak$(date '+%y%m%dT%H%M%S')"
     echo "dtparam=watchdog=on" >> /boot/config.txt
-    reboot_required=true
 fi
 
 yunohost service add $app
@@ -44,16 +43,10 @@ ynh_script_progression --message="Starting app's systemd service..."
 
 # Enable and start a systemd service
 systemctl enable $app.service --quiet
-ynh_systemd_action --service_name=$app --action="start"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
-
-if [ reboot_required = true ]; then
-    echo "Your device boot configuration has been updated to enable the hardware watchdog. Please reboot it." > ../doc/POST_INSTALL.md
-else
-    rm ../doc/POST_INSTALL.md
-fi
 
 ynh_script_progression --message="Installation of $app completed" --last
