@@ -53,7 +53,7 @@ ynh_systemd_action --service_name=$app --action="start"
 if [ $reboot_required = true ]; then
     echo "Your device boot configuration has been updated to enable the hardware watchdog. Please reboot it." > ../doc/POST_INSTALL.md
 else
-    rm ../doc/POST_INSTALL.md
+    rm -f ../doc/POST_INSTALL.md
 fi
 
 ynh_script_progression --message="Installation of $app completed" --last
