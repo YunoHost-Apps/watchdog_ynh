@@ -1,0 +1,33 @@
+packaging_format = 2
+
+id = "watchdog"
+name = "Watchdog"
+
+description.en = "Automatically reboot your server in case of freeze"
+description.fr = "Redémarre automatiquement votre serveur en cas de plantage"
+
+version = "5.16~ynh1"
+
+maintainers = ["tituspijean"]
+
+[upstream]
+license = "GPL-2.0-or-later"
+
+code = "https://sourceforge.net/projects/watchdog/"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = false
+ldap = "not_relevant"
+sso = "not_relevant"
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+
+[resources]
+
+    [resources.apt]
+    packages = "watchdog"

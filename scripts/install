@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# INSTALL DEPENDENCIES
+#=================================================
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding system configurations related to $app..."
+
+reboot_required=false
+if [[ $(grep -ic "Raspberry Pi" /proc/cpuinfo) -ge 1 && $(grep -ic "dtparam=watchdog=on" /boot/config.txt) -eq 0 ]]; then
+    echo "dtparam=watchdog=on" >> /boot/config.txt
+    reboot_required=true
+fi
+
+yunohost service add $app
+
+#=================================================
+# APP INITIAL CONFIGURATION
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding app's configuration file..."
+
+ynh_add_config --template="watchdog.conf" --destination="/etc/watchdog.conf"
+
+chmod 400 "/etc/watchdog.conf"
+chown root: "/etc/watchdog.conf"
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression --message="Starting app's systemd service..."
+
+# Enable and start a systemd service
+systemctl enable $app.service --quiet
+ynh_systemd_action --service_name=$app --action="start"
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+if [ reboot_required = true ]; then
+    echo "Your device boot configuration has been updated to enable the hardware watchdog. Please reboot it." > ../doc/POST_INSTALL.md
+else
+    rm ../doc/POST_INSTALL.md
+fi
+
+ynh_script_progression --message="Installation of $app completed" --last
