@@ -9,6 +9,16 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# WATCHDOG DEVICE CHECK
+#=================================================
+
+ynh_script_progression --message="Checking the hardware watchdog device presence..."
+
+if [ ! -f /dev/watchdog ]; then
+    ynh_die --message="Your server doesn't seem to have a '/dev/watchdog' device, this certainly means that it has no hardware watchdog device. However, this package is only relevant if such a device exists, we're sorry."
+fi
+
+#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 
