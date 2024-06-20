@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #=================================================
-# GENERIC START
-#=================================================
 # IMPORT GENERIC HELPERS
 #=================================================
 source _common.sh
@@ -28,28 +26,19 @@ if [[ $(grep -ic "Raspberry Pi" /proc/cpuinfo) -ge 1 && $(grep -ic "dtparam=watc
     echo "dtparam=watchdog=on" >> /boot/config.txt
 fi
 
-yunohost service add $app
-
-#=================================================
-# APP INITIAL CONFIGURATION
-#=================================================
-# ADD A CONFIGURATION
-#=================================================
-ynh_script_progression --message="Adding app's configuration file..."
-
 ynh_add_config --template="watchdog.conf" --destination="/etc/watchdog.conf"
-
 chmod 400 "/etc/watchdog.conf"
 chown root: "/etc/watchdog.conf"
+
+systemctl enable "$app.service" --quiet
+yunohost service add "$app"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting app's systemd service..."
 
-# Enable and start a systemd service
-systemctl enable $app.service --quiet
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
