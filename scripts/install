@@ -13,7 +13,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Checking the hardware watchdog device presence..."
 
-if [ ! -f /dev/watchdog ]; then
+# Don't issue this error in CI
+if [ "${PACKAGE_CHECK_EXEC:-0}" -eq 0 ] && [ ! -f /dev/watchdog ]; then
     ynh_die --message="Your server doesn't seem to have a '/dev/watchdog' device, this certainly means that it has no hardware watchdog device. However, this package is only relevant if such a device exists, we're sorry."
 fi
 
