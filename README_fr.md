@@ -16,15 +16,15 @@ Il NE doit PAS être modifié à la main.
 
 ## Vue d’ensemble
 
-Un service de surveillance *watchdog* s'assure que votre serveur tourne toujours, et le redémarre si nécessaire.
-Il tournera préférentiellement (uniquement?) si votre serveur est équipé d'un *watchdog* matériel.
+Un service de surveillance *watchdog* s'assure que votre serveur tourne toujours, et le redémarre si nécessaire.  
+Il tournera préférentiellement (uniquement?) si votre serveur est équipé d'un [*watchdog*](https://fr.wikipedia.org/wiki/Chien_de_garde_(informatique)) matériel.
 
 Le service inclut ira régulièrement écrire dans `/dev/watchdog`. S'il s'arrête, le plantage est alors détecté et résolu par un redémarrage du système.
 
 Cette application n'a été testée que sur Raspberry Pi.
 
 
-**Version incluse :** 5.16~ynh1
+**Version incluse :** 5.16~ynh2
 ## Documentations et ressources
 
 - Dépôt de code officiel de l’app : <https://sourceforge.net/projects/watchdog/>

@@ -9,22 +9,22 @@ It shall NOT be edited by hand.
 
 [![Install Watchdog with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=watchdog)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Watchdog quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
 
 ## Overview
 
-A watchdog service makes sure your server is still running and reboots it if necessary.
-It better (only?) works if your server has a hardware watchdog device.
+A watchdog service makes sure your server is still running and reboots it if necessary.  
+It better (only?) works if your server has a [hardware watchdog device](https://en.wikipedia.org/wiki/Watchdog_timer).
 
 The included sercice will regularly write to `/dev/watchdog`. If it stops, then the freeze is detected and server rebooted.
 
 This app has only been tested on Raspberry Pi.
 
 
-**Shipped version:** 5.16~ynh1
+**Shipped version:** 5.16~ynh2
 ## Documentation and resources
 
 - Upstream app code repository: <https://sourceforge.net/projects/watchdog/>

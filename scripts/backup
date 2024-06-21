@@ -18,6 +18,10 @@ ynh_print_info --message="Declaring files to be backed up..."
 
 ynh_backup --src_path="/etc/watchdog.conf"
 
+# Remove other various files specific to the app... such as :
+
+ynh_backup --src_path="/var/log/$app"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
