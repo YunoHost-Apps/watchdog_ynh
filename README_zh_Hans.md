@@ -5,7 +5,7 @@
 
 # YunoHost 上的 Watchdog
 
-[![集成程度](https://dash.yunohost.org/integration/watchdog.svg)](https://dash.yunohost.org/appci/app/watchdog) ![工作状态](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/watchdog.svg)](https://ci-apps.yunohost.org/ci/apps/watchdog/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
 
 [![使用 YunoHost 安装 Watchdog](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=watchdog)
 
@@ -24,7 +24,7 @@ The included sercice will regularly write to `/dev/watchdog`. If it stops, then 
 This app has only been tested on Raspberry Pi.
 
 
-**分发版本：** 5.16~ynh2
+**分发版本：** 5.16~ynh3
 ## 文档与资源
 
 - 上游应用代码库： <https://sourceforge.net/projects/watchdog/>
