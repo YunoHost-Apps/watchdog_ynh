@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Watchdog pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/watchdog.svg)](https://dash.yunohost.org/appci/app/watchdog) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/watchdog.svg)](https://ci-apps.yunohost.org/ci/apps/watchdog/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
 
 [![Installer Watchdog avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=watchdog)
 
@@ -24,7 +24,7 @@ Le service inclut ira régulièrement écrire dans `/dev/watchdog`. S'il s'arrê
 Cette application n'a été testée que sur Raspberry Pi.
 
 
-**Version incluse :** 5.16~ynh2
+**Version incluse :** 5.16~ynh3
 ## Documentations et ressources
 
 - Dépôt de code officiel de l’app : <https://sourceforge.net/projects/watchdog/>

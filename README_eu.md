@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Watchdog YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/watchdog.svg)](https://dash.yunohost.org/appci/app/watchdog) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/watchdog.svg)](https://ci-apps.yunohost.org/ci/apps/watchdog/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/watchdog.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/watchdog.maintain.svg)
 
 [![Instalatu Watchdog YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=watchdog)
 
@@ -24,7 +24,7 @@ The included sercice will regularly write to `/dev/watchdog`. If it stops, then 
 This app has only been tested on Raspberry Pi.
 
 
-**Paketatutako bertsioa:** 5.16~ynh2
+**Paketatutako bertsioa:** 5.16~ynh3
 ## Dokumentazioa eta baliabideak
 
 - Jatorrizko aplikazioaren kode-gordailua: <https://sourceforge.net/projects/watchdog/>
