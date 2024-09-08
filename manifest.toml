@@ -8,7 +8,7 @@ name = "Watchdog"
 description.en = "Automatically reboot your server in case of freeze"
 description.fr = "Redémarre automatiquement votre serveur en cas de plantage"
 
-version = "5.16~ynh3"
+version = "5.16~ynh4"
 
 maintainers = ["tituspijean"]
 
