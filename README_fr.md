@@ -24,7 +24,7 @@ Le service inclut ira régulièrement écrire dans `/dev/watchdog`. S'il s'arrê
 Cette application n'a été testée que sur Raspberry Pi.
 
 
-**Version incluse :** 5.16~ynh3
+**Version incluse :** 5.16~ynh4
 ## Documentations et ressources
 
 - Dépôt de code officiel de l’app : <https://sourceforge.net/projects/watchdog/>

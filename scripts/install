@@ -3,30 +3,31 @@
 #=================================================
 # IMPORT GENERIC HELPERS
 #=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
 # WATCHDOG DEVICE CHECK
 #=================================================
-ynh_script_progression --message="Checking the hardware watchdog device presence..."
+ynh_script_progression "Checking the hardware watchdog device presence..."
 
 # Don't issue this error in CI
-if [ "${PACKAGE_CHECK_EXEC:-0}" -eq 0 ] && [ ! -f /dev/watchdog ]; then
-    ynh_die --message="Your server doesn't seem to have a '/dev/watchdog' device, this certainly means that it has no hardware watchdog device. However, this package is only relevant if such a device exists, we're sorry."
+if ! ynh_in_ci_tests; then
+    ynh_die "Your server doesn't seem to have a '/dev/watchdog' device, this certainly means that it has no hardware watchdog device. However, this package is only relevant if such a device exists, we're sorry."
 fi
 
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..."
+ynh_script_progression "Adding system configurations related to $app..."
 
 if [[ $(grep -ic "Raspberry Pi" /proc/cpuinfo) -ge 1 && $(grep -ic "dtparam=watchdog=on" /boot/config.txt) -eq 0 ]]; then
     cp /boot/config.txt "/boot/config.bak$(date '+%y%m%dT%H%M%S')"
     echo "dtparam=watchdog=on" >> /boot/config.txt
 fi
 
-ynh_add_config --template="watchdog.conf" --destination="/etc/watchdog.conf"
+ynh_config_add --template="watchdog.conf" --destination="/etc/watchdog.conf"
 chmod 400 "/etc/watchdog.conf"
 chown root: "/etc/watchdog.conf"
 
@@ -36,12 +37,12 @@ yunohost service add "$app"
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting app's systemd service..."
+ynh_script_progression "Starting app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
+ynh_systemctl --service="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"

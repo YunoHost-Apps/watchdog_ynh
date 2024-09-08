@@ -24,7 +24,7 @@ The included sercice will regularly write to `/dev/watchdog`. If it stops, then 
 This app has only been tested on Raspberry Pi.
 
 
-**Paketatutako bertsioa:** 5.16~ynh3
+**Paketatutako bertsioa:** 5.16~ynh4
 ## Dokumentazioa eta baliabideak
 
 - Jatorrizko aplikazioaren kode-gordailua: <https://sourceforge.net/projects/watchdog/>

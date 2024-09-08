@@ -8,7 +8,7 @@ name = "Watchdog"
 description.en = "Automatically reboot your server in case of freeze"
 description.fr = "Redémarre automatiquement votre serveur en cas de plantage"
 
-version = "5.16~ynh3"
+version = "5.16~ynh4"
 
 maintainers = ["tituspijean"]
 
@@ -18,11 +18,15 @@ license = "GPL-2.0-or-later"
 code = "https://sourceforge.net/projects/watchdog/"
 
 [integration]
-yunohost = ">=11.2"
+yunohost = ">= 11.2.29"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = false
+
 ldap = "not_relevant"
+
 sso = "not_relevant"
+
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
