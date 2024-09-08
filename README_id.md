@@ -24,7 +24,7 @@ The included sercice will regularly write to `/dev/watchdog`. If it stops, then 
 This app has only been tested on Raspberry Pi.
 
 
-**Versi terkirim:** 5.16~ynh3
+**Versi terkirim:** 5.16~ynh4
 ## Dokumentasi dan sumber daya
 
 - Depot kode aplikasi hulu: <https://sourceforge.net/projects/watchdog/>

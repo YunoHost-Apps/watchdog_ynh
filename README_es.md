@@ -24,7 +24,7 @@ The included sercice will regularly write to `/dev/watchdog`. If it stops, then 
 This app has only been tested on Raspberry Pi.
 
 
-**Versión actual:** 5.16~ynh3
+**Versión actual:** 5.16~ynh4
 ## Documentaciones y recursos
 
 - Repositorio del código fuente oficial de la aplicación : <https://sourceforge.net/projects/watchdog/>
