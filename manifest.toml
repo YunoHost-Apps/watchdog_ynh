@@ -18,13 +18,12 @@ license = "GPL-2.0-or-later"
 code = "https://sourceforge.net/projects/watchdog/"
 
 [integration]
-yunohost = ">= 11.2.29"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = false
 
 ldap = "not_relevant"
-
 sso = "not_relevant"
 
 disk = "50M"
